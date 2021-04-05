@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<student>
+	<student>
+		<sid>22</sid>
+		<sname>satya</sname>
+		<sage>22</sage>
+	</student>
+	<student>
+		<sid>23</sid>
+		<sname>rama</sname>
+		<sage>24</sage>
+	</student>
+	<student>
+		<sid>25</sid>
+		<sname>anusha</sname>
+		<sage>26</sage>
+	</student>
+</student>
+	 
+
+
+
+
+

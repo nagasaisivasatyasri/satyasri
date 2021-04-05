@@ -1,0 +1,62 @@
+create database Mytable;
+use  Mytable;
+create table Employees(EMPLOYEE_ID INT PRIMARY KEY,FIRST_NAME VARCHAR(20) NOT NULL,LAST_NAME VARCHAR(20) NOT NULL,EMAIL VARCHAR(30) UNIQUE,JOB_ID VARCHAR(25));
+create database Mydatabase;
+use mydatabase;
+create table Employees(EMPLOYEE_ID INT PRIMARY KEY,FIRST_NAME VARCHAR(20) NOT NULL,LAST_NAME VARCHAR(20) NOT NULL,EMAIL VARCHAR(30) UNIQUE,JOB_ID VARCHAR(25));
+drop table employees;
+create table Employees(EMPLOYEE_ID INT PRIMARY KEY,FIRST_NAME VARCHAR(20) NOT NULL,LAST_NAME VARCHAR(20) NOT NULL,EMAIL VARCHAR(30) UNIQUE,JOB_ID VARCHAR(25));
+alter table employees add column salary int;
+desc employees;
+insert into employees values(123,'pavan','kalyan','pk@gmail.com','fd_developer',15000);
+insert into employees values(124,'kalyan','p','kp@gmail.com','fd_finance',16000);
+insert into employees values(125,'kalyani','shiva','ks@gmail.com','fd_testing',10000);
+create table dept(dept_id int,dept_name varchar(20),foreign key(dept_id) references employees(employee_id));
+select * from employees;
+select * from dept;
+insert into dept values(234,'finance');
+
+drop table dept;
+create table dept(dept_id int ,dept_name varchar(20));
+insert into dept values(234,'finance');
+insert into dept values(234,'finance');
+insert into dept values(235,'fd_testing');
+use mydatabase;
+update dept set dept_name='fd_developer' where dept_id=234;
+update dept set dept_name='fd_finance' where dept_id=235;
+select * from dept;
+select first_name,last_name from employees where salary>(select salary from employees where employee_id=163);
+select * from employees;
+insert into employees values(163,'satya','k','ksatyasri@gmail.com','fd_develper',20000);
+insert into employees values(169,'sai','k','ksat@gmail.com','fd_finance',25000);
+select first_name,last_name from employees where salary>(select salary from employees where employee_id=163);
+select * from employees;
+alter table employees add column dept_id int;
+select distinct * from dept;
+insert into  dept  values(236,'fd_testing');
+update  employees set dept_id=234  where job_id='fd_developer';
+
+update  employees set dept_id=235 where job_id='fd_finance';
+update  employees set dept_id=236 where job_id='fd_testing';
+select * from employees;
+update employees set job_id='fd_developer' ,dept_id=234 where employee_id=163;
+delete from employees where employee_id=null;
+select first_name,last_name,salary,dept_id,job_id from employees where job_id=(select job_id from employees where employee_id=169);
+select first_name,last_name,salary,dept_id from employees where salary = (select min(salary) from employees);
+select employee_id,first_name,last_name from employees where salary > (select avg(salary) from employees);
+alter table dept add column manager varchar(20);
+update dept set manager='shiva' where dept_id=234;
+update dept set manager='kumar' where dept_id=235;
+update dept set manager='arun' where dept_id=236;
+
+
+
+select employee_id,first_name,last_name,salary from employees where dept_id in (select dept_id from dept where manager='shiva') ;
+select * from employees;
+select dept_id,first_name,last_name,job_id from employees where dept_id in (select dept_id from dept where dept_name='fd_finance') ;
+select * from employees where salary=30000 and manager_id in (select manager_id from dept where reporting_id=121);
+select * from employees where employee_id in  (select employee_id from employees where employee_id=123 or employee_id=163 or employee_id=169);
+select * from employees where salary between 10000 AND 30000;
+select employee_id,first_name,last_name,salary from employees where dept_id in (select dept_id from dept where manager='shiva') ;
+select  min(salary) as sd from employees;
+select * from employees where salary between  'sd' and 30000;

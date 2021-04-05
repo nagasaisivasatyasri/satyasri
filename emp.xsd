@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema
+	elementFormDefault="qualified"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.empinfo.com">
+	<xsd:element name="employee">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="emp">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="mobno">
+								<xsd:simpleType>
+									<xsd:list itemType="xsd:int"></xsd:list>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	</xsd:schema>
